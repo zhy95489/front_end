@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .test4{background: #000;}
+.test4 figcaption{width: 100px;height: 100px;}
+.test4 figcaption h2{margin:15% 0 0 15%;opacity:0;transform: scale(1.2);}
+.test4 figcaption p{margin-left:15%;opacity:0;transform: scale(1.2);}
+.test4 figcaption div{border:2px solid #ccc;width: 100px;height: 100px;position:absolute;top:10%;left:10%;transform: scale(1.2,1.2);opacity: 0;}
+.test4:hover figcaption div{transform: scale(1,1);opacity: 1;}
+.test4:hover img{opacity: 0.6;transform: scale(0.9,0.9);}
+.test4:hover figcaption h2{opacity: 1;transform: scale(1);}
+.test4:hover figcaption p{opacity: 1;transform: scale(1);}
+    </style>
+</head>
+<body>
+    
+ <!--缩放-->
+ <figure class="test4">
+    <img src="./images/10.jpg" style="width: 100px;height:100px;">
+    <figcaption>
+        <h2>图片标题</h2>
+
+
+        <p>这里是图片的相关描述内容</p>
+        <div></div>
+    </figcaption>
+</figure>
+
+</body>
+</html>

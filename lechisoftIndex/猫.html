@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  width: 100%;
+  height: 99%;
+  text-align: center;
+  box-sizing: border-box;
+ }
+
+ .eye {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  margin: 10px;
+}
+
+ .eye::after {
+  position: absolute;
+  bottom: 17px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #313131;
+  border-radius: 50%;
+  content: '';
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+      <script>
+          var eye = document.querySelectorAll('.eye');
+            var contariner = document.querySelector('.container');
+            contariner.addEventListener('mousemove', calculation);
+
+            function calculation(event) {
+            eye.forEach((item, index) => {
+                var x = item.offsetLeft + item.clientWidth / 2; // 眼睛的x坐标
+                var y = item.offsetTop + item.clientHeight / 2; // 眼睛的y坐标
+                var rad = Math.atan2(event.pageX - x, event.pageY - y); // 鼠标和眼睛的坐标距离，然后用atan2函数计算出该点与(0, 0)点之间的弧度
+                var rot = (rad * (180 / Math.PI) * -1) + 180; // 转换成角度
+                item.style.cssText = 'transform: rotate(' + rot + 'deg)';
+  })
+}
+      </script>
+</body>
+</html>
