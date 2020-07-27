@@ -1,33 +1,21 @@
+var lefteye = document.querySelectorAll('.lefteye');
+var righteye = document.querySelectorAll('.righteye');
+  var contariner = document.querySelector('body');
+  contariner.addEventListener('mousemove', calculation);
 
-document.onmousemove=moveHandle;
-var tempx=new Array;
-var tempy=new Array;
-function moveHandle(evt){
-    console.log(evt);
-      if(!evt)
-        evt=window.event;
-
-    
-    var clientWidth = document.body.clientWidth;
-    var clientHeight = document.body.scrollHeight
-    console.log("moveHandle"+evt.clientX+":"+evt.clientY+"clientWidth"+clientWidth+":clientHeight"+clientHeight)
-    makeMouseMove(clientWidth - evt.clientX,clientHeight - evt.clientY);
-
-}
-function makeMouseMove(xPos,yPos){
-    console.log("makeMouseMove"+xPos+":"+yPos);
-   eyeMove(xPos,yPos);
-}
-function eyeMove(xPos,yPos){
-    var leftBall=document.getElementById("leftBall").style;
-    var rightBall=document.getElementById("rightBall").style;
-    leftBall.right=eyeFoll(xPos,150);
-    leftBall.bottom=eyeFoll(yPos,20);
-    rightBall.right=eyeFoll(xPos,65);
-    rightBall.bottom=eyeFoll(yPos,20);
-    function eyeFoll(currPos,eyePos){
-        var returrr = Math.min(Math.max(currPos,eyePos-3),eyePos+60)+"px";
-        console.log(returrr);
-        return returrr
-    }
+  function calculation(event) {
+    lefteye.forEach((item, index) => {
+      var x = item.offsetLeft + item.clientWidth / 2; // 眼睛的x坐标
+      var y = item.offsetTop + item.clientHeight / 2; // 眼睛的y坐标
+      var rad = Math.atan2(event.pageX - x, event.pageY - y); // 鼠标和眼睛的坐标距离，然后用atan2函数计算出该点与(0, 0)点之间的弧度
+      var rot = (rad * (180 / Math.PI) * -1) + 180; // 转换成角度
+      item.style.cssText = 'transform: rotate(' + rot + 'deg)';
+    })
+    righteye.forEach((item, index) => {
+      var x = item.offsetLeft + item.clientWidth / 2; // 眼睛的x坐标
+      var y = item.offsetTop + item.clientHeight / 2; // 眼睛的y坐标
+      var rad = Math.atan2(event.pageX - x, event.pageY - y); // 鼠标和眼睛的坐标距离，然后用atan2函数计算出该点与(0, 0)点之间的弧度
+      var rot = (rad * (180 / Math.PI) * -1) + 180; // 转换成角度
+      item.style.cssText = 'transform: rotate(' + rot + 'deg)';
+    })
 }

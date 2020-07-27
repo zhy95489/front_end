@@ -34,5 +34,48 @@ div:hover img{
 }
 
 
+   .lefteye {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    right: 200px;
+    bottom: 20px;
+    background-color: #ccc;
+    z-index : 101;
+  }
+   .righteye {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    right: 170px;
+    bottom: 20px;
+    background-color: #ccc;
+    z-index : 101;
+  }
+  
+   .righteye::after {
+    position: absolute;
+    bottom: 17px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #313131;
+    border-radius: 50%;
+    content: '';
+  }
+  .lefteye::after {
+    position: absolute;
+    bottom: 17px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #313131;
+    border-radius: 50%;
+    content: '';
+  }
 
 

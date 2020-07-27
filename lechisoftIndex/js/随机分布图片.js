@@ -1,5 +1,6 @@
 
 for (var i = 1; i < 20; i++) {
+    var StringTitles = ["富强民主文明和谐","爱国敬业诚信友善","会当凌绝顶，一览众山小","这一辈子，你哟没有为别人拼过命","这一路你可以哭，但不能怂"]
     //创建div里面放图片
     var divObj = document.createElement("div");
     //创建图片节点
@@ -27,7 +28,11 @@ for (var i = 1; i < 20; i++) {
     imgObj.setAttribute("style", styles);
     figcaption.setAttribute("style","position:fixed;left:" + x + "px;top:" + y + "px;-webkit-transform: rotate(" + xed + "deg);-moz-transform: rotate(" + yed + "deg);");
     figcaption.setAttribute("width", width);
-    
+
+    //添加title文字
+    var indexs = rand(0, 4);
+    var StringTitle = StringTitles[indexs];
+    imgObj.setAttribute('title',StringTitle)
     //添加onclick事件属性
     //this 代表当前对象,this是一个对象,只能在函数内使用
     imgObj.setAttribute("onclick", "removeImg(this)");
