@@ -14,15 +14,24 @@ for (var i = 1; i < 20; i++) {
     
     //添加src属性
     imgObj.setAttribute("src", "./images/" + i + ".jpg");
-    //添加width属性 getRandom()随机数函数
-    var width = rand(100, 300);
-    imgObj.setAttribute("width", width);
+  
 
     var xed = rand(-80, 80);
     var yed = rand(-80, 80);
     //添加层叠样式表属性(style属性  行内样式)
     var x = rand(0, window.innerWidth - 150);
     var y = rand(0, window.innerHeight - 150);
+
+
+    var apple = p.circleArray[i]
+    x = apple.x;
+    y = apple.y;
+    width = apple.r + 50;
+    //添加width属性 getRandom()随机数函数
+    // var width = rand(100, 300);
+   
+    console.log(x,y,width);
+    imgObj.setAttribute("width", width);
     //设置坐标 x y 为未知数
     var styles = "position:fixed;left:" + x + "px;top:" + y + "px;-webkit-transform: rotate(" + xed + "deg);-moz-transform: rotate(" + yed + "deg);"
     imgObj.setAttribute("style", styles);
