@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+            <li :class="{active:isActive == index?true:false}" v-for="(m,index) in message" @click="change(index)"><h2>{{index}}-{{m}}</h2></li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message : ['java','c++','python','GO','vue'],
+                isActive : 0,
+            },
+            methods:{
+                change:function (index) {
+                    this.isActive = index;
+                },
+                beforeMount:function () {
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

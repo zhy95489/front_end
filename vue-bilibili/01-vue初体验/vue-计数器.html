@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+		{{message}}
+		<button @click="add">+</button>
+		<button @click="sup">-</button>
+    </div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message: 0
+        },
+        methods:{
+            add: function(){
+
+                console.log('add被执行');
+                this.message++;
+                
+            },
+            sup: function(){
+
+				console.log('sup被执行');
+				this.message--;
+
+            },
+        }
+        
+    })
+
+</script>
+</html>

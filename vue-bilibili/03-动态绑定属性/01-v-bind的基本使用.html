@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <img v-bind:src="imgUrl" alt="">
+        <a :href="aHref">{{message}}</a>
+        <button @click="change">改变</button>
+    </div>
+    
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message : "你好啊",
+                imgUrl: 'https://cn.vuejs.org/images/logo.png',
+                aHref: 'http://www.baidu.com',
+                message: '百度一下'
+            },
+            methods:{
+                change:function () {
+                    this.aHref='http://www.sougou.com';
+                    this.message='搜狗一下'
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

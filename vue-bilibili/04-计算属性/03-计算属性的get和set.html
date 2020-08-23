@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                firstName: 'zhy',
+                lastName : 'shuai'
+            },
+            computed:{
+                //这种是计算属性的简写
+                // fullName:function () {
+                //     return this.firstName + ' ' +this.lastName
+                // }
+                fullName:{
+                    get:function () {
+                        return this.firstName + ' ' +this.lastName
+                    },
+                    set:function (newValur) {
+                      const names =  newValur.split(' ');
+                      this.firstName=names[0];
+                      this.lastName=names[1];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

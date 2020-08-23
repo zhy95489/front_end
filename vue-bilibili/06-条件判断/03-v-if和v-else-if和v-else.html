@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-else-if</title>
+</head>
+<body>
+
+<div id="app">
+    <!--<h2 v-if="source>90">优秀</h2>-->
+    <!--<h2 v-else-if="source>80">良好</h2>-->
+    <!--<h2 v-else-if="source>60">中登</h2>-->
+    <!--<h2 v-else="source<60">差劲</h2>-->
+    <h2>{{result}}</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好啊",
+            source: 90
+        },
+        computed: {
+            result() {
+                let ismessagescore = "";
+                if (this.source >= 90) {
+                    ismessagescore = "优秀";
+                }else if(this.source>=60){
+                    ismessagescore = "及格";
+                }else{
+                    ismessagescore="不及格";
+                }
+                return ismessagescore;
+            }
+        }
+    })
+</script>
+</body>
+</html>

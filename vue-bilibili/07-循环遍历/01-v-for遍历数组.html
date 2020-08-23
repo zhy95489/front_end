@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- 1、在遍历的过程中，没有使用索引值(下标值)-->
+        <ul>
+            <li  v-for="itm in message">{{itm}}</li>
+        </ul>
+
+        <!-- 2、在遍历的过程中使用  下标值-->
+
+        <ul>
+            <li  v-for="(itm ,index) in message">{{index+1}}-{{itm}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message : ['筷子1','筷子2','筷子3']
+            },
+        })
+    </script>
+</body>
+</html>

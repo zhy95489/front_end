@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <!--可以直接不写括号也没关系-->
+        <button @click="btn1click">按钮1</button>
+
+        <!--如果是这里没有参数(并且没有括号)而后面有参数的话  vue会自动化获取到event对象
+            否则就是undefined
+        -->
+        <button @click="btn2click()">按钮2</button>
+        <button @click="btn2click">按钮2</button>
+
+        <!--方法定义时 需要event对象  同时还要别的参数-->
+        <!--在调用方法时，如何手动获取浏览器参数的event对象  $event-->
+        <button @click="btn3click('abc2',$event)">按钮3</button>
+
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message : "你好啊"
+            },
+            methods :{
+                btn1click(){
+                    console.log("没有参数");
+                },
+                btn2click(event){
+                    console.log(event);
+                },
+                btn3click(abc,event){
+                    console.log(abc, event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

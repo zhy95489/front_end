@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哪些数组的方法是响应式的</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="btn1click()">点我</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            letters: ['a', 'b', 'c', 'd', 'e'],
+        },
+        methods:{
+            btn1click:function () {
+                //可以触发响应式的渲染方法
+                //1、push方法  向末尾追加一位
+                    //this.letters.push("z");
+
+                //2、pop()  //删除末尾的那条数据
+                    // this.letters.pop();
+
+                //3、shift()  //删除数组中第一个元素
+                    //this.letters.shift();
+
+                //4、unshift : 在数组最前面添加元素
+                    //this.letters.unshift('bbb');
+
+                // splice作用，删除元素，插入元素，替换元素
+                //    第二个参数默认传入要删除几个元素，如果没有传就删除后面所有
+                //5、splice(start, num)
+                    //this.letters.splice(1,0,'l')插入
+
+                //6、sort 排序
+                    //this.letters.sort()
+
+                // 7、reverse() 反转
+
+
+                //==>注意<==通过数组索引直接修改是不会触发响应式的
+                    //vue内部是没有监听呢
+                    //this.letters[0] = "123";
+                    // this.letters.splice(0,1,'123');
+                    //vue.set(要修改的对象，索引值，修改后的值)
+                    // Vue.set(this.letters,0,'123');
+            }
+        }
+    })
+</script>
+</body>
+</html>
