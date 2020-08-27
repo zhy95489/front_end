@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>humaaan</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <div id="huaban" :style="getbgcolor()" style="height: 800px;width: 800px">
+            <img v-bind:src="getimagesUrlUp()" :style="getUpStyle()">
+            <img v-bind:src="getimagesUrlDown()" :style="getDownStyle()">
+
+            <div style="right: 0px">
+                上衣选择-
+                <select v-model="upNum">
+                    <option v-for="x in upList">{{x}}</option>
+                </select>
+                裤子选择-
+                <select v-model="downNum">
+                    <option v-for="x in downList">{{x}}</option>
+                </select>
+                背景颜色选择-
+                <select v-model="bgcolor">
+                    <option v-for="x in colorList">{{x}}</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <p>调整上衣位置：左-<input type="text" v-model:value="upLeft">；
+                            上-<input type="text" v-model:value="upTop">
+            </p>
+            <p>调整裤子位置：左-<input type="text" v-model:value="DownLeft">；
+                            上-<input type="text" v-model:value="DownTop">
+            </p>
+        </div>
+
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
