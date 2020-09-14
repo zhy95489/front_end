@@ -80,7 +80,7 @@ v-show的用法和v-if非常相似，也用于决定一个元素是否渲染
 	当只有一次切换时，用v-if
 ```
 
-###### **13、组件的key属性**
+###### 13、组件的key属性
 
 ```
 官方推荐我们在使用v-for时，给对应的元素或组件添加上一个key属性。
@@ -94,10 +94,83 @@ v-show的用法和v-if非常相似，也用于决定一个元素是否渲染
 总结：key的作用主要是为了高效的更新DOM
 ```
 
-##### **14、vue绑定key为什么不建议用index**
+##### 14、vue绑定key为什么不建议用index
 
 ```
 因为如果你用index作为key的值，将来在修改数据的时候 index和item就不是一一对应关系了，因为数据被增加或者删除了之后index是会变的
 ```
 
-##### **15、**
+##### **15、绑定disable属性  **
+
+```
+用disable=“判断条件”
+```
+
+**16、关于splice的用法**
+
+```
+splice(0,   0,   0,       0,)
+       下标  几位  到第几位  替换
+```
+
+**17、关于vue里面使用过滤器**
+
+```
+filters  用于将参数传过来，然后进行一些变动，修改，或者整理什么的 ，如果很多个地方都需要用到就可以使用过滤器，对结果进行一下整理
+```
+
+**18、关于vue里面的循环  包括增强for循环**
+
+```
+			1、使用了普通的for循环
+            for (let i = 0; i < this.books.length; i++) {
+                totalPrice += this.books[i].price*this.books[i].num
+            }
+
+            2、是用了es6的for循环
+            for(let i in this.books){}
+
+            3、使用了增强for循环，直接拿出来对象
+            for (let book of this.books) {
+                totalPrice += book.price * book.num
+            }
+```
+
+**19、关于vue里面的高阶函数  filter   map    reduce**
+
+```
+
+             1、filter函数的使用 -》过滤掉其中某些不符合条件的
+             const number = num.filter(function(n){
+                return n<10;
+             })
+
+             2、map函数的使用 -》让每个函数都进行相乘
+             const number2 = number.map(function (n){
+                return n*2;
+             })
+
+             3、reduce函数的使用  让函数进行汇总
+             对数组中所有的数据进行汇总
+             number2.reduce(function(preValue , n){
+                return preValue + n;
+             },0)
+             
+             4、高阶函数的连接使用
+            const num = [2, 3, 54, 234, 65, 32, 4, 3, 2];
+            totalPrice = num.filter(function (n) {
+                return n < 10
+            }).map(function (n) {
+                return n * 2
+            }).reduce(function (preValue, n) {
+                return preValue + n
+            })
+
+            5、高阶函数的链式操作，箭头函数
+            let totleNum = num.filter(n => n < 10).map(n => n * 2).reduce((preValue, n) => preValue + n)
+            
+```
+
+
+
+**19、**
