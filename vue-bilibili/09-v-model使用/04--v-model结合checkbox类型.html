@@ -21,6 +21,10 @@
         <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
 
         <h2>你的选择是：{{hobbies}}</h2>
+
+        <label v-for="item in zhobbies" for="item">
+            <input type="checkbox" :value="item" id="item" v-model="hobbies">{{item}}
+        </label>
     </div>
 
     <script src="../js/vue.js"></script>
@@ -30,7 +34,8 @@
             data: {
                 message : '你好呀',
                 isAgree : false,
-                hobbies:[]
+                hobbies:[],
+                zhobbies:['篮球','足球','乒乓球','羽毛球']
             },
         })
     </script>
