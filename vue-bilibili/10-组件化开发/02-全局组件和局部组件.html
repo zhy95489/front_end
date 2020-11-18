@@ -14,14 +14,14 @@
 
     <div id="app2">
         <h2>{{message}}22222</h2>
-
+        <cpn></cpn>
     </div>
 
     <script src="../js/vue.js"></script>
     <script>
 
         //1、组件构造器
-        const cpn = Vue.extend({
+        const cpn1 = Vue.extend({
             template:`
                 <div>
                     <h2>我是标题啊</h2>
@@ -37,7 +37,7 @@
                 message : "你好啊"
             },
             components:{
-                cpn:cpn
+                cpn:cpn1
             }
         })
         const app2 = new Vue({
